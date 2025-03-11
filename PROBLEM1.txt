@@ -1,0 +1,41 @@
+BEGIN
+    PRINT "Enter the total bill amount (before tip):"
+    READ bill_amount
+    IF bill_amount <= 0 THEN
+        PRINT "Error: Bill amount must be a positive number."
+        EXIT
+
+    PRINT "Enter the quality of service (poor, fair, good, excellent):"
+    READ service_quality
+    
+    IF service_quality IS "poor" THEN 
+        tip_percentage = 0.10
+    ELSE IF service_quality IS "fair" THEN 
+        tip_percentage = 0.15
+    ELSE IF service_quality IS "good" THEN 
+        tip_percentage = 0.18
+    ELSE IF service_quality IS "excellent" THEN 
+        tip_percentage = 0.20
+    ELSE 
+        PRINT "Error: Invalid service quality."
+        EXIT
+
+    PRINT "Enter the number of people splitting the bill:"
+    READ num_people
+    IF num_people <= 0 THEN
+        PRINT "Error: Number of people must be a positive integer."
+        EXIT
+
+    tip_amount = bill_amount * tip_percentage
+    total_amount = bill_amount + tip_amount
+    amount_per_person = total_amount / num_people
+
+    PRINT "--- Bill Summary ---"
+    PRINT " Bill Amount: ", bill_amount
+    PRINT "Service Quality: ", service_quality, "(", tip_percentage * 100, "% tip)"
+    PRINT "Tip Amount: ", tip_amount
+    PRINT "Total Amount (Including Tip): ", total_amount
+    PRINT "Number of People Splitting the Bill: ", num_people
+    PRINT "Amount Per Person: ", amount_per_person
+
+END
