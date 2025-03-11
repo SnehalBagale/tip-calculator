@@ -1,4 +1,4 @@
-BEGIN
+START
     PRINT "Enter the total bill amount (before tip):"
     READ bill_amount
     IF bill_amount <= 0 THEN
@@ -30,7 +30,6 @@ BEGIN
     total_amount = bill_amount + tip_amount
     amount_per_person = total_amount / num_people
 
-    PRINT "--- Bill Summary ---"
     PRINT " Bill Amount: ", bill_amount
     PRINT "Service Quality: ", service_quality, "(", tip_percentage * 100, "% tip)"
     PRINT "Tip Amount: ", tip_amount
